@@ -139,7 +139,7 @@ local function set_keymaps()
 
   -- file tree keymaps
   -- vim.api.nvim_set_keymap("n",'<leader>n', '<cmd>NvimTreeToggle<cr>',silent)
-  vim.api.nvim_set_keymap("n", "<leader>e", ":NeoTreeShowToggle<CR>", {noremap = true, silent = true})
+  vim.api.nvim_set_keymap("n", "<leader>n", ":NeoTreeShowToggle<CR>", {noremap = true, silent = true})
   vim.api.nvim_set_keymap("n",'<leader>b', ':Neotree toggle show buffers<cr>',silent)
   vim.api.nvim_set_keymap("n",'<leader>g', ':Neotree flow git_status<cr>',silent)
 
