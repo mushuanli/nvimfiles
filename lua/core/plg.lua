@@ -123,8 +123,8 @@ local function install_plugins(isWindows)
               expander_highlight = "NeoTreeExpander",
             },
             icon = {
-              folder_closed = "",
-              folder_open = "",
+              folder_closed = "+",
+              folder_open = "-",
               folder_empty = "ﰊ",
               -- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
               -- then these will never be used.
