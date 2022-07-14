@@ -3,14 +3,14 @@
 local function main()
   local isWindows = vim.loop.os_uname().sysname == "Windows_NT"
 
-  local ui        = require('core.uiinit')
+  local ui        = require('core.ui')
   ui.config(isWindows,'gruvbox')
-  require('core.viopt').config()
-  require('core.viplug').config(isWindows)
-  require('core.vitree').config()
+  require('core.opt').config()
+  require('core.plg').config(isWindows)
+  require('core.scope').config()
 
   if not isWindows then
-    require('core.exinit')
+    require('core.lsp').config()
   end
 
   ui.aucmd(isWindows)
