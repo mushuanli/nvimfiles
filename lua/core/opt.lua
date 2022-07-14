@@ -138,13 +138,13 @@ local function set_keymaps()
   vim.api.nvim_set_keymap("n","<C-s>", [[<cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find{}<CR>]],silent)
 
   -- file tree keymaps
-  vim.api.nvim_set_keymap("n",'<leader>n', '<cmd>NvimTreeToggle<cr>',silent)
+  -- vim.api.nvim_set_keymap("n",'<leader>n', '<cmd>NvimTreeToggle<cr>',silent)
+  vim.api.nvim_set_keymap("n", "<leader>e", ":NeoTreeShowToggle<CR>", {noremap = true, silent = true})
   vim.api.nvim_set_keymap("n",'<leader>b', ':Neotree toggle show buffers<cr>',silent)
   vim.api.nvim_set_keymap("n",'<leader>g', ':Neotree flow git_status<cr>',silent)
 
   vim.api.nvim_set_keymap("n", "<leader>l", ":bnext<CR>", {noremap = true, silent = true})
   vim.api.nvim_set_keymap("n", "<leader>h", ":bprevious<CR>", {noremap = true, silent = true})
-  vim.api.nvim_set_keymap("n", "<leader>e", ":NeoTreeShowToggle<CR>", {noremap = true, silent = true})
   vim.api.nvim_set_keymap("n", "<leader>do", ":DiffviewOpen<CR>", {noremap = true, silent = true})
   vim.api.nvim_set_keymap("n", "<leader>dc", ":DiffviewClose<CR>", {noremap = true, silent = true})
   vim.api.nvim_set_keymap("n", "gb", "<Cmd>BufferLinePick<CR>", {noremap = true, silent = true})
