@@ -10,6 +10,7 @@ local function main()
   require('scope').config()
 
   if not isWindows then
+    require('statbar').config()
     require('lsp').config()
   end
 
