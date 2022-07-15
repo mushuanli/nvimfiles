@@ -1,6 +1,8 @@
 
 local M = {};
 
+--  go install golang.org/x/tools/gopls@latest
+--  npm install -g typescript typescript-language-server
 local function setup_completions()
   local cmp = require('cmp')
 
@@ -139,10 +141,11 @@ local function install_lsp_servers()
   local lsp_installer_servers = require('nvim-lsp-installer.servers')
 
   local servers = {
-    'bashls',
     'clangd',
     'rust_analyzer',
     'sumneko_lua',
+    "gopls",
+    "tsserver"
   }
 
   for _, server_name in pairs(servers) do
@@ -153,14 +156,35 @@ local function install_lsp_servers()
   end
 end
 
+local function setup_lsp_servers()
+  require'lspconfig'.tsserver.setup{}
+  require('lspconfig').gopls.setup{
+    cmd = {'gopls'},
+    settings = {
+      gopls = {
+        analyses = {
+          nilness = true,
+          unusedparams = true,
+          unusedwrite = true,
+          useany = true,
+        },
+        experimentalPostfixCompletions = true,
+        gofumpt = true,
+        staticcheck = true,
+        usePlaceholders = true,
+      },
+    },
+     on_attach = function(_, bufnr) setup_lsp_keymaps(bufnr) end,
+  }
+end
 
-  
-  
+
 function M.config()
   setup_completions()
   setup_statusbar()
   setup_lsp_settings()
   install_lsp_servers()
+  setup_lsp_servers()
 end
 
 return M;

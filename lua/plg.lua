@@ -286,6 +286,9 @@ local function install_plugins(isWindows)
 
     -- completion engine
     if not isWindows then
+      use {"akinsho/toggleterm.nvim", tag = 'v2.*', config = function()
+	require("toggleterm").setup()
+      end}
       use {
         'hrsh7th/nvim-cmp',
         requires = {

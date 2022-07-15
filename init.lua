@@ -11,6 +11,7 @@ local function main()
 
   if not isWindows then
     require('statbar').config()
+    require('term').config()
     require('lsp').config()
   end
 
