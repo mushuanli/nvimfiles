@@ -94,6 +94,12 @@ end
 
 local function set_keymaps()
   local silent = { silent = true, noremap = true }
+  
+  vim.api.nvim_set_keymap("i",[[']],[[''<ESC>i]],silent)
+  vim.api.nvim_set_keymap("i",[["]],[[""<ESC>i]],silent)
+  vim.api.nvim_set_keymap("i",[[(]],[[()<ESC>i]],silent)
+  vim.api.nvim_set_keymap("i",'[','[]<ESC>i',silent)
+  vim.api.nvim_set_keymap("i",'{','{<CR>}<ESC>O',silent)
 
   -- vim.api.nvim_set_keymap("n",'<F3>',':NvimTreeToggle<cr>',silent)
   vim.api.nvim_set_keymap("n",'<F4>','zO',silent)
